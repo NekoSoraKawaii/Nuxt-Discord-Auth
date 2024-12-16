@@ -4,6 +4,7 @@
 
     <div v-if="session">
       <p>Welcome, {{ session.username }}</p>
+      <button type="button" @click="signOut">Sign Out</button>
     </div>
     <div v-else>
       <button @click="signIn">Sign In</button>
@@ -14,7 +15,7 @@
 <script setup lang="ts">
 import useDiscordAuth from './composables/useDiscordAuth';
 
-const { signIn, session, getSession } = useDiscordAuth();
+const { signIn, signOut, session, getSession } = useDiscordAuth();
 
 onMounted(() => {
   getSession();

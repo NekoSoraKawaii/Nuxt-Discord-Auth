@@ -7,6 +7,11 @@ export default function useDiscordAuth() {
         window.location.href = "/api/auth/login";
     };
 
+    const signOut = async () => {
+        await useFetch("/api/auth/logout");
+        session.value = null;
+    }
+
     const getSession = async () => {
         const { data } = await useFetch("/api/auth/session");
         const sessionData = data.value?.session as SessionData | null;
@@ -15,6 +20,7 @@ export default function useDiscordAuth() {
 
     return {
         signIn,
+        signOut,
         session,
         getSession
     }
