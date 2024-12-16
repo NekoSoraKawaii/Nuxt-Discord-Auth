@@ -1,7 +1,9 @@
 import { defineEventHandler, sendRedirect } from "h3";
+import { DISCORD_CONFIG } from "~/server/config/auth";
 
 export default defineEventHandler((event) => {
-    return {
-        message: "login-api"
-    }
+    const scope = encodeURIComponent('identify email');
+    const discordAuthUrl = `https://discord.com/oauth2/authorize?client_id=${DISCORD_CONFIG.clientId}&redirect_uri=${encodeURIComponent(DISCORD_CONFIG.redirectUri)}&response_type=code&scope=${scope}`
+
+    return sendRedirect(event, discordAuthUrl);
 })
