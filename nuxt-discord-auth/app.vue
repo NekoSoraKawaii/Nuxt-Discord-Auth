@@ -1,13 +1,14 @@
 <template>
     <div class="h-screen bg-neutral-900 text-white">
         <div class="h-full flex flex-col items-center justify-center text-center">
-            <div v-if="session">
-               <img
-               :src="session.avatar"
-               :alt="session.username"
-               width="200"
-               height="200"
-               />
+            <div v-if="session" class="-mt-24">
+                <img :src="session.avatar" :alt="session.username" width="200" height="200" class="rounded-xl mx-auto"
+                    style="border: 2px solid transparent; background-image: linear-gradient(to right, #00C58E, #7C3AED); background-origin: border-box;" />
+                <h2 class="mt-5 font-semibold text-2xl">Welcome, {{ session.username }}</h2>
+                <h3 class="mt-2 font-medium text-sm mb-4">Name, {{ session.global_name }}</h3>
+                <div class="font-semibold rounded-lg p-2 px-8 bg-gradient-to-r from-[#00C58E] to-[#7C3AED]">
+                    <button type="button" @click="signOut">Sign Out</button>
+                </div>
             </div>
             <div v-else class="font-bold mb-5">
                 <h3
