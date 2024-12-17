@@ -34,7 +34,7 @@ export default defineEventHandler(async (event) => {
             path: "/"
         });
 
-        return { success: true };
+        return sendRedirect(event, "/", 302);
     } catch (error) {
         console.error(error);
         throw new Error("OAuth2 Failed")
