@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.12.2",
     "@types/jsonwebtoken": "^9.0.7",
     "axios": "^1.7.9",
     "cookie": "^1.0.2",
