@@ -16,7 +16,7 @@ export default function useDiscordAuth() {
         const { data } = await useFetch("/api/auth/session");
         const sessionData = data.value?.session as SessionData | null;
         if (sessionData?.user) {
-            sessionData.user.avatar = `https://cdn.discordapp.com/avatars/${sessionData.user.id}/${sessionData.user.avatar}.png`
+            sessionData.user.avatar = `https://cdn.discordapp.com/avatars/${sessionData.user.id}/${sessionData.user.avatar}.png?size=512`
         }
         session.value = sessionData?.user || null
     }
