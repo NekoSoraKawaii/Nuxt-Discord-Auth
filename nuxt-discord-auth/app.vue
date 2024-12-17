@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-const { signIn, signOut, session, getSession } = useDiscordAuth();
+const { signIn, signOut, session, status, getSession } = useDiscordAuth();
 
 onMounted(() => {
     getSession();
