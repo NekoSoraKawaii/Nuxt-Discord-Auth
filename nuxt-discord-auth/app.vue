@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import useDiscordAuth from './composables/useDiscordAuth';
+import useDiscordAuth from '~/composables/useDiscordAuth';
 
 const { signIn, signOut, session, getSession } = useDiscordAuth();
 
